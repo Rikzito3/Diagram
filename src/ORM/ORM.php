@@ -6,7 +6,7 @@ use PDO, PDOException;
 
 class ORM
 {
-    protected $pdo;
+    public $pdo;
 
     public function __construct(PDO $pdo)
     {
