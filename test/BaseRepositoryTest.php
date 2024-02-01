@@ -49,20 +49,15 @@ class BaseRepositoryTest extends TestCase
         ];
 
         $this->repository->update($data, $id);
-
         $updatedRecord = $this->connection->getConnection()->query("SELECT * FROM test_table WHERE id = $id")->fetch(PDO::FETCH_ASSOC);
-
         $this->assertEquals($data, $updatedRecord);
     }
 
     public function testDelete()
     {
         $id = 1;
-
         $this->repository->delete($id);
-
         $deletedRecord = $this->connection->getConnection()->query("SELECT * FROM test_table WHERE id = $id")->fetch(PDO::FETCH_ASSOC);
-
         $this->assertFalse($deletedRecord);
     }
 }
