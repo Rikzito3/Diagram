@@ -1,5 +1,9 @@
 <?php
 
+namespace Ipeweb\Diagram\ORM;
+
+use PDO, PDOException;
+
 class ORM
 {
     protected $pdo;

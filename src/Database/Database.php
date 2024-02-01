@@ -2,7 +2,9 @@
 
 namespace Ipeweb\Diagram\Database;
 
-use PDO, PDOException;
+use PDO;
+use PDOException;
+use Ipeweb\Diagram\ORM\ORM;
 
 class Database
 {
@@ -20,7 +22,9 @@ class Database
             $pdo = new PDO($dns);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            return $pdo;
+            $orm = new ORM($pdo);
+
+            return (object)['pdo' => $pdo, 'orm' => $orm];
         } catch (PDOException $e) {
             die('Erro de conexão: ' . $e->getMessage());
         }
