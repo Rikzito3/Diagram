@@ -16,7 +16,7 @@ class BaseRepositoryTest extends TestCase
     protected function setUp(): void
     {
         $this->connection = new Connection();
-        $this->repository = new BaseRepository($this->connection, 'test_table'); // Use uma tabela de teste
+        $this->repository = new BaseRepository($this->connection, 'test_table');
     }
 
     public function testCreate()
